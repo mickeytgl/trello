@@ -80,3 +80,4 @@ gem 'omniauth-github', '~> 1.3'
 gem 'whenever', require: false
 gem 'friendly_id', '~> 5.1.0'
 gem 'sitemap_generator', '~> 6.0', '>= 6.0.1'
+gem 'acts_as_list', '~> 0.9.12'
