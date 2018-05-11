@@ -22,11 +22,6 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :position %>
-    <%= form.number_field :position, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
     <% if card.persisted? %>
       <div class="float-right">
         <%= link_to 'Destroy', card, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
