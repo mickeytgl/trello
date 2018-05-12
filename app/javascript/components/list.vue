@@ -81,13 +81,5 @@ export default {
   min-height: 20px;
 }
 
-.list {
-  background: #E2E4E6;
-  border-radius: 3px;
-  display: inline-block;
-  margin-right: 20px;
-  padding: 10px;
-  width: 270px;
-  vertical-align: top;
-}
+
 </style>
