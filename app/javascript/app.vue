@@ -20,7 +20,7 @@ export default {
   methods: {
     listMoved: function(event)  {
       var data = new FormData
-      data.append("card[position]", event.added.newIndex + 1)
+      data.append("list[position]", event.newIndex + 1)
 
       Rails.ajax({
         url: `/lists/${this.lists[event.newIndex].id}/move`,
