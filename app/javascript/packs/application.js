@@ -12,7 +12,9 @@ import App from '../app.vue'
 import TurbolinksAdapter from 'vue-turbolinks'
 import Vuex from 'vuex'
 
-Vue.use(TurbolinksAdapter)
+Vue.use(TurbolinksAdapter
+Vue.use(Vuex)
+
 window.store = new Vuex.Store({
   state: {
     lists: []
