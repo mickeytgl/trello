@@ -29,7 +29,7 @@ export default {
     lists() {
       return this.$store.state.lists;
     }
-  }
+  },
 
   methods: {
     startEditing: function(){
