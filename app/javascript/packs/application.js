@@ -9,10 +9,8 @@
 
 import Vue from 'vue/dist/vue.esm'
 import App from '../app.vue'
-import TurbolinksAdapter from 'vue-turbolinks'
 import Vuex from 'vuex'
 
-Vue.use(TurbolinksAdapter)
 Vue.use(Vuex)
 
 window.store = new Vuex.Store({
