@@ -1,14 +1,16 @@
 <template>
-  <draggable v-model="lists" :options="{group: 'lists'}" class="board dragArea" @end="listMoved">
-    <list v-for="(list, index) in lists" :list="list"></list>
+  <div class="board">
+    <draggable v-model="lists" :options="{group: 'lists'}" class="d-inline-block dragArea" @end="listMoved">
+      <list v-for="(list, index) in lists" :list="list" :key="list.id"></list>
+    </draggable>
 
-    <div class="list">
-      <a v-if="!editing" v-on:click="startEditing">Add a List</a>
-      <textarea v-if="editing" ref="message" class="form-control mb-1" v-model="message"></textarea>
-      <button v-if="editing" v-on:click="createList" class="btn btn-secondary">Add</button>
-      <a v-if="editing" v-on:click="editing=false">Cancel</a>
-    </div>
-  </draggable>
+      <div class="list">
+        <a v-if="!editing" v-on:click="startEditing">Add a List</a>
+        <textarea v-if="editing" ref="message" class="form-control mb-1" v-model="message"></textarea>
+        <button v-if="editing" v-on:click="createList" class="btn btn-secondary">Add</button>
+        <a v-if="editing" v-on:click="editing=false">Cancel</a>
+      </div>
+  </div>
 </template>
 
 <script>
@@ -26,9 +28,14 @@ export default {
   },
 
   computed: {
-    lists() {
-      return this.$store.state.lists;
-    }
+    lists: {
+      get() {
+        return this.$store.state.lists
+      },
+      set(value) {
+        this.$store.state.lists
+      },
+    },
   },
 
   methods: {
@@ -37,6 +44,7 @@ export default {
       this.$nextTick(() => { this.$refs.message.focus() })
     },
     listMoved: function(event)  {
+      console.log("MOVE IT!")
       var data = new FormData
       data.append("list[position]", event.newIndex + 1)
 

@@ -4,12 +4,12 @@
     <hr>
 
     <draggable v-model="list.cards" :options="{group: 'cards'}" class="dragArea" @change="cardMoved">
-      <card v-for="card in list.cards" :card="card" :list='list'></card>
+      <card v-for="card in list.cards" :key="card.id" :card="card" :list='list'></card>
     </draggable>
 
     <a v-if="!editing" v-on:click="startEditing">Add a card</a>
     <textarea v-if="editing" ref="message" class="form-control mb-1" v-model="message"></textarea>
-    <button v-if="editing" v-on:click="submitMessage" class="btn btn-secondary">Add</button>
+    <button v-if="editing" v-on:click="createCard" class="btn btn-secondary">Add</button>
     <a v-if="editing" v-on:click="editing=false">Cancel</a>
   </div>
 </template>
