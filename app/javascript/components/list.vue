@@ -38,12 +38,12 @@ export default {
       data.append("card[name]", this.message)
 
       Rails.ajax({
+        beforeSend: () => true,
         url: "/cards",
         type: "POST",
         data: data,
         dataType: "json",
         success: (data) => {
-          this.$store.commit('addCard', data)
           this.message = ""
           this.$nextTick(() => { this.$refs.message.focus() })
         }
@@ -66,6 +66,7 @@ export default {
       data.append("card[position]", evt.newIndex + 1)
 
       Rails.ajax({
+        beforeSend: () => true,
         url: `/cards/${element.id}/move`,
         type: "PATCH",
         data: data,
